@@ -20,7 +20,9 @@
                
                 <td>{{ task.taskname }}</td>
                 <td><a href="{% url 'taskdetail' task.id %}">View Details</a></td>
-                <td><a href="{% url 'updatetask' task.id %}">Update Task</a></td>  <!-- Changed URL name to lowercase -->
+                <td><a href="{% url 'updatetask' task.id %}">Update Task</a></td> 
+                <td><a href="{% url 'deletetask' task.id %}">Delete Task</a></td>
+            
             </tr>
             {% endfor %}
         </tbody>

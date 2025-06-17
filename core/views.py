@@ -31,4 +31,6 @@ class Updatetask(UpdateView):
 
 class delettask(DeleteView):
     model=Task
-
+    context_object_name='task'
+    success_url=reverse_lazy('tasklist')
+    template_name='delete_task.html'
