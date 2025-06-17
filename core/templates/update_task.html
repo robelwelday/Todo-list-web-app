@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Task</title>
+</head>
+<body>
+    <h2>Update Task</h2>
+
+    {% if form.errors %}
+        <ul>
+            {% for field, errors in form.errors.items %}
+                <li>{{ field }}: {{ errors }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+
+    <p><a href="{% url 'tasklist' %}">Back to Task List</a></p>
+</body>
+</html>

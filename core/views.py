@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 from .models import Task
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView,  DeleteView
+from django.views.generic.edit import CreateView,UpdateView ,DeleteView
 from django.urls import reverse_lazy
 
 
@@ -19,8 +19,16 @@ class taskdetail(DetailView):
 class createtask(CreateView):
     model = Task
     template_name = 'task_create.html'
-    fields = ['user','taskname', 'description','completed']  
-    success_url = reverse_lazy('taskdetail')
+    fields = ['user', 'taskname', 'description', 'completed']  # Ensure these fields exist in the Task model
+    success_url = reverse_lazy('tasklist') 
+    
+class Updatetask(UpdateView):
+    model = Task
+    template_name = 'update_task.html'
+    fields = ['user', 'taskname', 'description', 'completed']  # Ensure these fields exist in the Task model
+    success_url = reverse_lazy('tasklist') # Ensure 'tasklist' is correctly defined in core/urls.py
+
+
 class delettask(DeleteView):
     model=Task
 
