@@ -9,6 +9,11 @@
 <body>
     <h1>Task List</h1>
     <a href="{% url 'Createtask' %}">Create New Task</a>
+    <form method="GET" action="">
+        <input type="text" name="search-area" placeholder="Search tasks" value="{{ search_input }}">
+        <button type="submit">Search</button>
+    </form>
+    
     <table border="1">
         <thead>
             <tr>
